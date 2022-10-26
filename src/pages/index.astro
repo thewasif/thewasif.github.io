@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Muhammad Wasif">
+  <main>
+    <h1>Hello, I am <span class="text-gradient">Wasif</span></h1>
+    <div class="text-container">
+      <p class="description">
+        I am a software developer. Most of my work experience is in web but I
+        have always been open to explore different domains.
+      </p>
+      <p class="description">
+        I started programming at the age of 15. I like to build cool stuff with
+        what I know. My primary weapon is JavaScript & TypeScript. I love to
+        work in an open envirnmoent where everyone can share ideas and
+        contribute in the development of a product. <br />
+      </p>
+      <p class="description">
+        Besides programming, I am a fan of literature, art, poetry and
+        philosophy. I consider Allama Iqbal my <i>murshid</i>.
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 5rem 1.5rem 0 1.5rem;
+    max-width: 110ch;
+  }
+  .text-container {
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: calc(2rem + 1vw);
+    font-weight: 800;
+    margin: 0;
+    color: var(--color);
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .description {
+    color: var(--color);
+  }
+
+  @media (min-width: 1590px) {
+    main {
+      max-width: 140ch;
+    }
+  }
+</style>
