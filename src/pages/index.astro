@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
-<Layout title="Muhammad Wasif">
+<Layout
+  title="Muhammad Wasif - Software Developer, Google Code-in 2019 Runner Up"
+>
   <main>
     <h1>Hello, I am <span class="text-gradient">Wasif</span></h1>
     <div class="text-container">
@@ -11,25 +14,24 @@ import Layout from "../layouts/Layout.astro";
         have always been open to explore different domains.
       </p>
       <p class="description">
-        I started programming at the age of 15. I like to build cool stuff with
-        what I know. My primary weapon is JavaScript & TypeScript. I love to
-        work in an open envirnmoent where everyone can share ideas and
-        contribute in the development of a product. <br />
+        I have about 2+ years of experience in software development working
+        mostly with TypeScript/JavaScript. I have always been eager to explore
+        new technologies to build better applications on both, front-end & back-end. I love to work in an open
+        envirnmoent where everyone can share ideas and contribute in the
+        development of a product. <br />
       </p>
-      <p class="description">
-        Besides programming, I am a fan of literature, art, poetry and
-        philosophy. I consider Allama Iqbal my <i>murshid</i>.
-      </p>
+     
     </div>
+    <a href="/experience">
+      <Button variant="primary">Experience</Button>
+    </a>
+    <a href="/about">
+      <Button >More about me</Button>
+    </a>
   </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 5rem 1.5rem 0 1.5rem;
-    max-width: 110ch;
-  }
   .text-container {
     max-width: 60ch;
   }
@@ -50,9 +52,7 @@ import Layout from "../layouts/Layout.astro";
     color: var(--color);
   }
 
-  @media (min-width: 1590px) {
-    main {
-      max-width: 140ch;
-    }
+  .ml-1 {
+    margin-inline-start: 1rem;
   }
 </style>

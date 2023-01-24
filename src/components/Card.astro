@@ -1,0 +1,70 @@
+---
+const { title, subtitle, description, linkText, link, image } = Astro.props;
+---
+
+<div class="container">
+  <div class="header">
+    <img src={image} alt="" />
+    <div class="title">
+      <h3>{title}</h3>
+      <p>{subtitle}</p>
+    </div>
+  </div>
+  <div class="details">
+    <p>
+      {description}
+    </p>
+  </div>
+  <div class="footer">
+    <a href={link} target="_blank">
+      {linkText}
+    </a>
+  </div>
+</div>
+
+<style>
+  .container {
+    padding: 2%;
+    border-radius: 0.8rem;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    color: var(--color);
+  }
+  .container:hover {
+    background-color: var(--light-bg);
+  }
+
+  .header {
+    display: flex;
+  }
+  .header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .header .title {
+    margin-inline-start: 1rem;
+  }
+  .header .title h3,
+  .header .title p {
+    margin: 0;
+    color: var(--text);
+  }
+  .header .title p {
+    color: var(--text-light);
+    font-size: small;
+  }
+  .details {
+    color: var(--text-light);
+    text-align: justify;
+
+  }
+  .footer a {
+    border: none;
+    background-color: transparent;
+    color: var(--primary);
+    font-size: medium;
+    padding-inline-start: 0;
+    text-decoration: none;
+  }
+</style>

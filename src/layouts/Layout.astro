@@ -14,7 +14,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="theme-color" content="#3451b2" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -29,17 +29,19 @@ const { title } = Astro.props;
   <body>
     <nav>
       <div>
-        <h2>محمد واصف</h2>
+        <a href="/">
+          <h2>محمد واصف</h2>
+        </a>
       </div>
       <div class="links">
         <p>
-          <a href="#">About</a>
+          <a href="/about">About</a>
         </p>
         <p>
-          <a href="#">Experience</a>
+          <a href="/experience">Experience</a>
         </p>
         <p>
-          <a href="#">Projects</a>
+          <a href="/projects">Projects</a>
         </p>
       </div>
     </nav>
@@ -76,11 +78,21 @@ const { title } = Astro.props;
         --color: #11181c;
         --background: #fbfcfd;
         --primary: #3451b2;
+        --text: #11181c;
+        --text-light: #687076;
+        --light-bg: #f1f3f5;
       }
       html {
         font-family: system-ui, sans-serif;
         background-color: var(--background);
       }
+
+      main {
+        margin: auto;
+        padding: 4rem 1.5rem 0 1.5rem;
+        max-width: 110ch;
+      }
+
       code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
           DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
@@ -92,6 +104,12 @@ const { title } = Astro.props;
         align-items: center;
         padding: 0.4rem 0.8rem;
       }
+      @media (min-width: 1590px) {
+        main {
+          max-width: 140ch;
+        }
+      }
+
       @media (max-width: 450px) {
         nav {
           flex-direction: column;
@@ -132,6 +150,9 @@ const { title } = Astro.props;
         height: 100px;
         background-color: var(--color);
       }
+      a {
+        text-decoration: none;
+      }
 
       @media (prefers-color-scheme: dark) {
         :root {
@@ -145,6 +166,9 @@ const { title } = Astro.props;
           --color: #ecedee;
           --background: #151718;
           --primary: #849dff;
+          --light-bg: #202425;
+          --text: #ecedee;
+        --text-light: #9ba1a6;
         }
       }
 
@@ -154,10 +178,10 @@ const { title } = Astro.props;
         }
       }
 
-      ::selection{
-  background-color: #3e63dd;
-  color: white;
-}
+      ::selection {
+        background-color: #3e63dd;
+        color: white;
+      }
     </style>
   </body>
 </html>

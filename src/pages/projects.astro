@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Experience from "../components/Card.astro";
+---
+
+<Layout title="Projects - Muhammad Wasif">
+  <main>
+    <h2>I've built hundreds of sites and apps. Here are a few of them.</h2>
+    <p>
+      Within my career, I have worked on variety of Web3 and blockchain relevant
+      projects. I have always tried to implement the best and optimal solution
+      to the every problem I encounter. With a huge experience in building front
+      end applications with <b>React & Next.js</b>, I have worked with
+      technologies like <b>NestJS</b> & <b>GraphQL</b> to develop back-end RESTful
+      APIs
+    </p>
+    <p>Besides tradional web development, I have also explored <i>Metaverse</i> world while developing applications on <b>Decentraland</b> (MANA). with DCL SDK and JavaScript physics engines</p>
+
+
+    <Experience
+      title="Atlas DEX"
+      description="During my work at Ideofuzion, I got oppurtunity to work on Atlas DEX. Atlas DEX is first ever cross-chain aggregator from Solana to EVM chains. You can swap tokens & stake/unstake on multiple chains. \n My responsibilites inluded developing the responsive design of application and integrating APIs and contracts on front-end side."
+      subtitle="Cross-chain DEX aggregator"
+      link="https://app.atlasdex.finance/swap"
+      image="./images/atlas.png"
+      linkText="Visit app"
+    />
+  </main>
+</Layout>
+
+
+<style>
+  p , h2{
+    color: var(--color);
+  }
+</style>
