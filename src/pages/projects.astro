@@ -14,23 +14,38 @@ import Experience from "../components/Card.astro";
       technologies like <b>NestJS</b> & <b>GraphQL</b> to develop back-end RESTful
       APIs
     </p>
-    <p>Besides tradional web development, I have also explored <i>Metaverse</i> world while developing applications on <b>Decentraland</b> (MANA). with DCL SDK and JavaScript physics engines</p>
+    <p>
+      Besides tradional web development, I have also explored <i>Metaverse</i> world
+      while developing applications on <b>Decentraland</b> (MANA). with DCL SDK and
+      JavaScript physics engines
+    </p>
 
-
+    <Experience
+      title="IU Meta Stadium"
+      description="IU Meta is a 3D stadium in Decentraland, owned by Islamabad United (a PSL cricket team). With LaLiga Land in its neighbors, IU Meta is an interactive stadium where you can complete different challenges to get rewards (NFTs, wearables & assets). I got an opportunity to work on Decentraland SDK (in TypeScript) to develop and deploy the stadium in Decentraland."
+      subtitle="World's first cricket metaverse stadium"
+      links={[
+        { text: "Website", href: "https://metastadium.io/stadium" },
+        {
+          text: "Visit stadium",
+          href: "https://play.decentraland.org/?NETWORK=mainnet&position=-146%2C76&realm=dg&island=dg2wxn",
+        },
+      ]}
+      image="/images/u-meta.png"
+    />
     <Experience
       title="Atlas DEX"
       description="During my work at Ideofuzion, I got oppurtunity to work on Atlas DEX. Atlas DEX is first ever cross-chain aggregator from Solana to EVM chains. You can swap tokens & stake/unstake on multiple chains. \n My responsibilites inluded developing the responsive design of application and integrating APIs and contracts on front-end side."
       subtitle="Cross-chain DEX aggregator"
-      link="https://app.atlasdex.finance/swap"
+      links={[{ text: "Visit app", href: "https://app.atlasdex.finance/swap" }]}
       image="/images/atlas.png"
-      linkText="Visit app"
     />
   </main>
 </Layout>
 
-
 <style>
-  p , h2{
+  p,
+  h2 {
     color: var(--color);
   }
 </style>

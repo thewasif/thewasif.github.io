@@ -1,5 +1,12 @@
 ---
-const { title, subtitle, description, linkText, link, image } = Astro.props;
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  links: { text: string; href: string }[];
+}
+const { title, subtitle, description, links, image } = Astro.props;
 ---
 
 <div class="container">
@@ -16,9 +23,15 @@ const { title, subtitle, description, linkText, link, image } = Astro.props;
     </p>
   </div>
   <div class="footer">
-    <a href={link} target="_blank">
-      {linkText}
-    </a>
+    {
+      links.map((link) => {
+        return (
+          <a href={link.href} target="_blank">
+            {link.text}
+          </a>
+        );
+      })
+    }
   </div>
 </div>
 
@@ -57,7 +70,6 @@ const { title, subtitle, description, linkText, link, image } = Astro.props;
   .details {
     color: var(--text-light);
     text-align: justify;
-
   }
   .footer a {
     border: none;
@@ -66,5 +78,6 @@ const { title, subtitle, description, linkText, link, image } = Astro.props;
     font-size: medium;
     padding-inline-start: 0;
     text-decoration: none;
+    margin-inline-end: 1rem;
   }
 </style>

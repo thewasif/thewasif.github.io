@@ -7,25 +7,34 @@ import Experience from "../components/Card.astro";
   <main>
     <h2>I have experience of working on applications with diverse domains</h2>
     <p>
-      I like to work in an environment where everyone can share ideas to contribute in the development of a product. I look for transparency, flexibility and openness in any work environment 
+      I like to work in an environment where everyone can share ideas to
+      contribute in the development of a product. I look for transparency,
+      flexibility and openness in any work environment
     </p>
 
     <Experience
       title="Ideofuzion (Pvt.) Ltd."
       description="While working at Ideofuzion as a full stack developer, I have working on various technologies. During my career at Ideofuzion, I have built DApps, NFT marketplaces & many other web3 applications. I have been working with TypeScript to build front-end with React/Next, back-end APIs with NestJS and building applications on Decentraland with DCL SDK and Cannon.js"
       subtitle="Sept. 2021 - Present"
-      link="https://ideofuzion.com/"
       image="/images/ideofuzion.jpeg"
-      linkText="Visit website"
+      links={[{ text: "Visit website", href: "https://ideofuzion.com/" }]}
     />
 
     <Experience
       title="FOSSASIA"
       description="During Google Code-in 2019, I worked with FOSSASIA (an open-source organisation), to find & fix issues in their open source projects. I worked with FOSSASIA for about 2 months and was selected as a Runner Up by their team at Google Code-in 2019, an open source coding competition by Google. Among students from 76 countries, I was first Pakistani student to be select as Runner Up"
       subtitle="Dec. 2019 - Feb. 2020"
-      link="https://codein.withgoogle.com/archive/2019/"
       image="/images/fossasia.jpeg"
-      linkText="View Google code-in winners list"
+      links={[
+        {
+          text: "View Google code-in winners list",
+          href: "https://codein.withgoogle.com/archive/2019/",
+        },
+        {
+          href: "https://www.dropbox.com/s/rg2s4ikqeib2dxh/GCI%202019%20Certificate%206571372227067904.pdf?dl=0",
+          text: "View certificate",
+        },
+      ]}
     />
   </main>
 </Layout>
@@ -36,6 +45,6 @@ import Experience from "../components/Card.astro";
   }
   P {
     margin-bottom: 2rem;
-    color: var(--color);  
+    color: var(--color);
   }
 </style>
