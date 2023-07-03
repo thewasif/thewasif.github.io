@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Course from "../components/Course.astro";
+---
+
+<Layout title="Education - Muhammad Wasif">
+  <main>
+    <h2>
+      I have never let my schooling interfare with my education - Mark Twain
+    </h2>
+    <p>
+      I started learning programming when I was in middle school. I am more of a
+      self taught person who has learned from multiple platforms. I have studied
+      advanced CS courses and subjects that help me in my career. I am always
+      learning something new and advanced.
+    </p>
+    <p>
+      I have studied courses like <i>Object Oriented Design</i>, <i
+        >Software Design Patterns</i
+      > and <i>Data Structures & Algorithms</i> etc. Besides CS courses, I have also
+      studied <i>Calculus</i> & <i>Discrete Mathematics</i>. <br />
+      Though I am enrolled in BS Computer Science ADP Program in Virtual University
+      of Pakistan, but most of my educational credit goes to platforms like Coursera,
+      EdX and FreeCodeCamp.
+    </p>
+
+    <section class="courses">
+      <Course
+        name="Design Patterns"
+        university="University of Alberta"
+        link={"https://www.coursera.org/account/accomplishments/verify/YWWCSJG7D26G"}
+        icon="/images/coursera.jpeg"
+      />
+      <Course
+        name="Object Oriented Design"
+        university="University of Alberta"
+        link={"https://www.coursera.org/account/accomplishments/verify/ZSU8ELJDVTSK"}
+        icon="/images/coursera.jpeg"
+      />
+      <Course
+        name="JS Algorithms & Data Structures"
+        university="Freecodecamp"
+        link={"https://www.freecodecamp.org/certification/fcca89724bd-8a87-4e93-8a7c-29324c314330/javascript-algorithms-and-data-structures"}
+        icon="/images/freecodecamp.jpeg"
+      />
+      <Course
+        name="Mathematical Thinking in CS"
+        university="University of California San Diego"
+        link={"https://www.coursera.org/account/accomplishments/verify/BA72VFZZPYKB"}
+        icon="/images/coursera.jpeg"
+      />
+      <Course
+        name="Developing Cloud Native Applications"
+        university="IBM"
+        link={"https://www.coursera.org/account/accomplishments/verify/WXKPAS89C8UY"}
+        icon="/images/coursera.jpeg"
+      />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  h2 {
+    color: var(--color);
+  }
+  P {
+    margin-bottom: 2rem;
+    color: var(--color);
+  }
+
+  .courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+interface Props {
+  icon: string;
+  university: string;
+  name: string;
+  link: string;
+}
+const { icon, name, university, link } = Astro.props;
+---
+
+<div class="container">
+  <img src={icon} alt="" />
+  <div class="details">
+    <h4 class="title">{name}</h4>
+    <p class="uni-name">{university}</p>
+    <a target="_blank" href={link}>View certificate</a>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: start;
+    padding: 8px;
+    border-radius: 0.8rem;
+    color: var(--color);
+    width: 100%;
+  }
+  .container:hover {
+    background-color: var(--light-bg);
+  }
+
+  .container > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 0.8rem;
+  }
+
+  .details {
+    margin-inline-start: 0.6rem;
+  }
+  .title {
+    margin: 0;
+    font-size: large;
+  }
+  .uni-name {
+    margin: 0;
+  }
+
+  a {
+    border: none;
+    background-color: transparent;
+    color: var(--primary);
+    font-size: medium;
+    padding-inline-start: 0;
+    text-decoration: none;
+    margin-inline-end: 1rem;
+  }
+</style>
