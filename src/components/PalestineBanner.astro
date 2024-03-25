@@ -6,7 +6,7 @@
         <b>Israel</b> is brutally killing children in <b>Gaza</b>. Raise your
         voice against genocide! 🇵🇸
     </p>
-    <div class="links">
+    <div class="links-p">
         <a
             target="_blank"
             href="https://www.islamic-relief.org.uk/giving/appeals/palestine/pray-for-palestine/"
@@ -32,7 +32,7 @@
         justify-content: center;
     }
 
-    .links {
+    .links-p {
         margin-inline-start: 1rem;
     }
     p {
@@ -40,15 +40,26 @@
         color: white;
         margin: 0;
     }
-    .links a {
+    .links-p a {
         margin: 0 4px;
-        color: #FAF9FB !important;
+        color: #faf9fb !important;
         text-decoration: underline !important;
     }
 
     @media (max-width: 870px) {
         .palestine-banner {
             flex-direction: column;
+        }
+
+        p {
+            font-size: 12px;
+        }
+        .links-p {
+            margin-inline-start: 0rem;
+        }
+        .links-p a {
+            font-size: 12px;
+
         }
     }
 </style>
