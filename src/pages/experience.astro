@@ -1,28 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Experience from "../components/Card.astro";
+import Experience from "../components/ExperienceCard.astro";
 ---
 
 <Layout title="Experience - Muhammad Wasif">
   <main>
     <h2>I have experience of working on applications with diverse domains</h2>
-    <p>
-      I like to work in an environment where everyone can share ideas to
-      contribute in the development of a product. I look for transparency,
-      flexibility and openness in any work environment
+    <p style="max-width: 80ch;" >
+      I thrive in collaborative environments where everyone can freely share ideas and contribute to a product's development. I value transparency, flexibility, and openness in the workplace, as they foster innovation and teamwork.
     </p>
 
     <Experience
+      title="Amjeo Studio"
+      description="At Amjeo Studio, my responsibilities include designing and developing solutions for applications using appropriate technologies that are scalable. "
+      subtitle="May 2024 - Present"
+      image="/images/amjeo.svg"
+      links={[{ text: "Visit website", href: "https://www.amjeo.com/" }]}
+    />
+
+    <Experience
       title="Ideofuzion (Pvt.) Ltd."
-      description="While working at Ideofuzion as a full stack developer, I have working on various technologies. During my career at Ideofuzion, I have built DApps, NFT marketplaces & many other web3 applications. I have been working with TypeScript to build front-end with React/Next, back-end APIs with NestJS and building applications on Decentraland with DCL SDK and Cannon.js"
-      subtitle="Sept. 2021 - Present"
+      description="During my tenure at Ideofuzion as a Full Stack Developer, I have worked with a diverse range of technologies, specializing in Web3 development. I have built decentralized applications (DApps), NFT marketplaces, and various other blockchain-powered solutions. My expertise includes using TypeScript to develop front-end applications with React and Next.js, building scalable back-end APIs with NestJS, and creating immersive experiences on Decentraland using the DCL SDK and JavaScript physics engines."
+      subtitle="Sept. 2021 - April 2024"
       image="/images/ideofuzion.jpeg"
       links={[{ text: "Visit website", href: "https://ideofuzion.com/" }]}
     />
 
     <Experience
       title="FOSSASIA"
-      description="During Google Code-in 2019, I worked with FOSSASIA (an open-source organisation), to find & fix issues in their open source projects. I worked with FOSSASIA for about 2 months and was selected as a Runner Up by their team at Google Code-in 2019, an open source coding competition by Google. Among students from 76 countries, I was first Pakistani student to be select as Runner Up"
+      description="During Google Code-in 2019, I worked with FOSSASIA to improve open-source projects by identifying and fixing issues. Over two months, I contributed to various enhancements and was honored as a Runner-Up. It was an incredible experience being part of a global competition with students from 76 countries—and I was proud to be the first Pakistani student to achieve this title!."
       subtitle="Dec. 2019 - Feb. 2020"
       image="/images/fossasia.jpeg"
       links={[
