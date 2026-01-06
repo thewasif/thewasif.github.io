@@ -4,49 +4,65 @@ import Experience from "../components/Card.astro";
 ---
 
 <Layout title="Projects - Muhammad Wasif">
-  <main>
-    <h2>I've built hundreds of sites and apps. Here are a few of them.</h2>
-    <p>
-      Within my career, I have worked on variety of Web3 and blockchain relevant
-      projects. I have always tried to implement the best and optimal solution
-      to the every problem I encounter. With a huge experience in building front
-      end applications with <b>React & Next.js</b>, I have worked with
-      technologies like <b>NestJS</b> & <b>GraphQL</b> to develop back-end RESTful
-      APIs.
-    </p>
-    <p>
-      Besides tradional web development, I have also explored <i>Metaverse</i> world
-      while developing applications on <b>Decentraland</b> (MANA). with DCL SDK and
-      JavaScript physics engines. <br />
-      Here are few of the projects, I have worked on
-    </p>
+    <main>
+        <h2>I've built hundreds of sites and apps. Here are a few of them.</h2>
+        <p>
+            Within my career, I’ve built and maintained front-end applications using React, Next.js, and modern tooling,
+            focusing on performance, usability, and clean architecture.
+        </p>
+        <p>On the backend, I’ve worked with NestJS and Express, designing APIs and systems backed by PostgreSQL,
+            MongoDB, Supabase, and GraphQL. I’m comfortable taking features from idea to production and working across
+            the full stack when needed.</p>
+        <p>
+            Besides tradional web development, I have also explored <i>Metaverse</i> world
+            while developing applications on <b>Decentraland</b> (MANA). with DCL SDK and
+            JavaScript physics engines. <br/>
+            Here are few of the projects, I have worked on
+        </p>
 
-    <Experience
-      title="IU Meta Stadium"
-      description="IU Meta is a 3D stadium in Decentraland, owned by Islamabad United (a PSL cricket team). With LaLiga Land in its neighbors, IU Meta is an interactive stadium where you can complete different challenges to get rewards (NFTs, wearables & assets). I got an opportunity to work on Decentraland SDK (in TypeScript) to develop and deploy the stadium in Decentraland."
-      subtitle="World's first cricket metaverse stadium"
-      links={[
-        { text: "Website", href: "https://metastadium.io/stadium" },
-        {
-          text: "Visit stadium",
-          href: "https://play.decentraland.org/?NETWORK=mainnet&position=-146%2C76&realm=dg&island=dg2wxn",
-        },
-      ]}
-      image="/images/u-meta.png"
-    />
-    <Experience
-      title="Atlas DEX"
-      description="During my work at Ideofuzion, I got oppurtunity to work on Atlas DEX. Atlas DEX is first ever cross-chain aggregator from Solana to EVM chains. You can swap tokens & stake/unstake on multiple chains. \n My responsibilites inluded developing the responsive design of application and integrating APIs and contracts on front-end side."
-      subtitle="Cross-chain DEX aggregator"
-      links={[{ text: "Visit app", href: "https://app.atlasdex.finance/swap" }]}
-      image="/images/atlas.png"
-    />
-  </main>
+        <Experience
+                title="club."
+                description="Club is a go-to motivation app that turns your effort into rewards: device-verified steps, workouts, and sleep become opportunities to win real-world prizes. I worked on the backend resposnible for tracking health metrics from health wearbales and creating clubs and challenges for users to participate in & win rewards."
+                subtitle="Gamified Health & Fitness"
+                links={[
+                    {text: "Google Play", href: "https://play.google.com/store/apps/details?id=io.club.com"},
+                    {
+                        text: "App Store",
+                        href: "https://apps.apple.com/tr/app/club-gamified-health-fitness/id6752398669"
+                    },
+                    {
+                        text: "Visit website",
+                        href: "https://www.club.xyz/",
+                    },
+                ]}
+                image="/images/clubicon.webp"
+        />
+        <Experience
+                title="IU Meta Stadium"
+                description="IU Meta is a 3D stadium in Decentraland, owned by Islamabad United (a PSL cricket team). With LaLiga Land in its neighbors, IU Meta is an interactive stadium where you can complete different challenges to get rewards (NFTs, wearables & assets). I got an opportunity to work on Decentraland SDK (in TypeScript) to develop and deploy the stadium in Decentraland."
+                subtitle="World's first cricket metaverse stadium"
+                links={[
+                    {text: "Website", href: "https://metastadium.io/stadium"},
+                    {
+                        text: "Visit stadium",
+                        href: "https://play.decentraland.org/?NETWORK=mainnet&position=-146%2C76&realm=dg&island=dg2wxn",
+                    },
+                ]}
+                image="/images/u-meta.png"
+        />
+        <Experience
+                title="Atlas DEX"
+                description="During my work at Ideofuzion, I got oppurtunity to work on Atlas DEX. Atlas DEX is first ever cross-chain aggregator from Solana to EVM chains. You can swap tokens & stake/unstake on multiple chains. \n My responsibilites inluded developing the responsive design of application and integrating APIs and contracts on front-end side."
+                subtitle="Cross-chain DEX aggregator"
+                links={[{text: "Visit app", href: "https://app.atlasdex.finance/swap"}]}
+                image="/images/atlas.png"
+        />
+    </main>
 </Layout>
 
 <style>
-  p,
-  h2 {
-    color: var(--color);
-  }
+    p,
+    h2 {
+        color: var(--color);
+    }
 </style>
