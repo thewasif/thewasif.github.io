@@ -2,64 +2,73 @@
 ---
 
 <section class="palestine-banner">
-    <p>
-        <b>Israel</b> is brutally killing children in <b>Gaza</b>. Raise your
-        voice against genocide! 🇵🇸
-    </p>
-    <div class="links-p">
-        <a
-            target="_blank"
-            href="https://www.islamic-relief.org.uk/giving/appeals/palestine/pray-for-palestine/"
-            >Donate for Palestine</a
-        >
-        <a
-            target="_blank"
-            href="https://www.aljazeera.com/news/2023/10/9/whats-the-israel-palestine-conflict-about-a-simple-guide"
-            >What's going on?</a
-        >
-    </div>
+  <p>
+    <b>Israel</b> is brutally killing children in <b>Gaza</b>. Raise your voice
+    against genocide! 🇵🇸
+  </p>
+  <div class="links-p">
+    <a
+      target="_blank"
+      rel="noopener"
+      href="https://www.islamic-relief.org.uk/giving/appeals/palestine/pray-for-palestine/"
+      >Donate for Palestine</a
+    >
+    <a
+      target="_blank"
+      rel="noopener"
+      href="https://www.aljazeera.com/news/2023/10/9/whats-the-israel-palestine-conflict-about-a-simple-guide"
+      >What's going on?</a
+    >
+  </div>
 </section>
 
 <style>
-    .palestine-banner {
-        background: rgb(37, 36, 36);
-        padding: 8px 0;
-        text-align: center;
-        font-family: system-ui, sans-serif;
-        display: inline-flex;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-    }
+  .palestine-banner {
+    background: #161519;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .links-p {
-        margin-inline-start: 1rem;
+  p {
+    font-size: 0.85rem;
+    color: #f2f1f5;
+    margin: 0;
+  }
+
+  .links-p {
+    display: inline-flex;
+    gap: 0.9rem;
+  }
+
+  .links-p a {
+    color: #f2f1f5;
+    font-size: 0.82rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 241, 245, 0.45);
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .links-p a:hover {
+    border-bottom-color: #f2f1f5;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 870px) {
+    .palestine-banner {
+      flex-direction: column;
     }
     p {
-        font-size: 16px;
-        color: white;
-        margin: 0;
+      font-size: 0.75rem;
     }
     .links-p a {
-        margin: 0 4px;
-        color: #faf9fb !important;
-        text-decoration: underline !important;
+      font-size: 0.75rem;
     }
-
-    @media (max-width: 870px) {
-        .palestine-banner {
-            flex-direction: column;
-        }
-
-        p {
-            font-size: 12px;
-        }
-        .links-p {
-            margin-inline-start: 0rem;
-        }
-        .links-p a {
-            font-size: 12px;
-
-        }
-    }
+  }
 </style>

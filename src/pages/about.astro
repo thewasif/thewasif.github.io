@@ -2,47 +2,72 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="About Me - Muhammad Wasif">
+<Layout
+  title="About Me - Muhammad Wasif"
+  description="Software engineer since 15. TypeScript, backends, and things people actually use."
+>
   <main>
+    <h1>About</h1>
+
     <p>
-      I started programming at the age of 15. After getting my hands dirty with
-      many languages, TypeScript & JavaScript became my primary programming
-      language. I have always been very enthusiastic about what I can build with
-      what I know.
+      I started programming at 15. Tried a lot of languages, stuck with
+      TypeScript — mostly because I like shipping things more than arguing about
+      tooling.
     </p>
     <p>
-      After creating many tools and fun websites and apps, I took part in <a
+      In 2019 I entered <a
         href="https://codein.withgoogle.com/archive/"
-        target="_blank">Google Code-in 2019</a
-      >, which is an open source coding competition by Google. Students from 76
-      countries took part and I was selected as Runner Up by <a
+        target="_blank"
+        rel="noopener">Google Code-in</a
+      >, an open source competition with students from 76 countries, and was
+      picked as Runner Up by <a
         href="https://fossasia.org/"
-        target="_blank">FOSSASIA</a
-      > for remarkable contributions in their open source projects.
+        target="_blank"
+        rel="noopener">FOSSASIA</a
+      > — the first Pakistani student to get there.
     </p>
     <p>
-      Then I started freelancing and built hundreds of websites, apps & tools as
-      part of freelance projects. I got opportunity to work on various modern
-      technologies and on variety of projects during freelancing, all until the age of 19.
+      Freelancing came next: hundreds of sites, apps and tools, a new stack
+      every other month, all before I turned 19. Then Ideofuzion hired me as a
+      Jr. Software Developer, and I've been building professionally since.
     </p>
-    <p>At the age of 19, I started my career as Jr. Software Developer at Ideofuzion, where I worked on wide range of projects. I have always been among the active contributors & participants in any project I worked on.</p>
-    <p>Besides programming, I spend my time reading books (mainly poetry), exploring art & philosophy.</p>
+    <p>
+      These days I work on backends — APIs, data models, the unglamorous parts
+      that decide whether a product feels fast. I care about clarity and
+      maintainability, and I'm suspicious of clever code.
+    </p>
+    <p>
+      Outside work: books (mostly poetry), art, and philosophy I only half
+      understand.
+    </p>
   </main>
 </Layout>
 
 <style>
+  h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.5rem 0;
+    color: var(--text);
+  }
   p {
-    max-width: 90ch;
-    color: var(--color);
+    max-width: 62ch;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
   }
   p a {
     color: var(--primary);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
-  @media (max-width: 450px) {
+  p a:hover {
+    border-bottom-color: var(--primary);
+  }
+  @media (max-width: 560px) {
     p {
-      font-size: small;
+      font-size: 0.9rem;
     }
-   }
-
- 
+  }
 </style>

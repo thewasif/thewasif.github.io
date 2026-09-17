@@ -9,75 +9,121 @@ interface Props {
 const { title, subtitle, description, links, image } = Astro.props;
 ---
 
-<div class="container">
+<article class="card">
   <div class="header">
-    <img src={image} alt="" />
+    <img src={image} alt="" loading="lazy" />
     <div class="title">
       <h3>{title}</h3>
       <p>{subtitle}</p>
     </div>
   </div>
-  <div class="details">
-    <p>
-      {description}
-    </p>
-  </div>
+  <p class="details">{description}</p>
   <div class="footer">
     {
-      links.map((link) => {
-        return (
-          <a href={link.href} target="_blank">
-            {link.text}
-          </a>
-        );
-      })
+      links.map((link) => (
+        <a href={link.href} target="_blank" rel="noopener">
+          {link.text}
+          <span class="arrow">→</span>
+        </a>
+      ))
     }
   </div>
-</div>
+</article>
 
 <style>
-  .container {
-    padding: 2% 1.2%;
-    border-radius: 0.8rem;
-    max-width: 600px;
-    margin-bottom: 1rem;
-    color: var(--color);
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background-color: var(--background);
+    color: var(--text);
+    height: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, border-color 0.2s ease,
+      box-shadow 0.2s ease, background-color 0.2s ease;
   }
-  .container:hover {
-    background-color: var(--light-bg);
-    transition: 0.3s;
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .card:active {
+    transform: translateY(-1px);
   }
 
   .header {
     display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
+
   .header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
   }
-  .header .title {
-    margin-inline-start: 1rem;
+
+  .card:hover .header img {
+    transform: scale(1.06);
   }
-  .header .title h3,
-  .header .title p {
+
+  .header .title h3 {
     margin: 0;
-    color: var(--color);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
   }
+
   .header .title p {
+    margin: 0.1rem 0 0 0;
+    font-size: 0.78rem;
     color: var(--text-light);
-    font-size: small;
   }
+
   .details {
+    margin: 0;
     color: var(--text-light);
-    }
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin-top: auto;
+    padding-top: 0.2rem;
+  }
+
   .footer a {
-    border: none;
-    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     color: var(--primary);
-    font-size: medium;
-    padding-inline-start: 0;
-    text-decoration: none;
-    margin-inline-end: 1rem;
+    font-size: 0.83rem;
+    font-weight: 500;
+    transition: color 0.2s ease, gap 0.2s ease;
+  }
+
+  .footer a:hover {
+    color: var(--primary-hover);
+    gap: 0.45rem;
+  }
+
+  .arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .footer a:hover .arrow {
+    transform: translateX(2px);
   }
 </style>

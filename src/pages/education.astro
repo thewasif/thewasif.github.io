@@ -3,25 +3,20 @@ import Layout from "../layouts/Layout.astro";
 import Course from "../components/Course.astro";
 ---
 
-<Layout title="Education - Muhammad Wasif">
+<Layout
+  title="Education - Muhammad Wasif"
+  description="Mostly self-taught — Coursera, edX and freeCodeCamp, plus a BS CS ADP at Virtual University of Pakistan."
+>
   <main>
-    <h2>
-      I have never let my schooling interfare with my education - Mark Twain
-    </h2>
-    <p>
-      I started learning programming when I was in middle school. I am more of a
-      self taught person who has learned from multiple platforms. I have studied
-      advanced CS courses and subjects that help me in my career. I am always
-      learning something new and advanced.
+    <h1>Education</h1>
+    <p class="intro">
+      Mostly self-taught. I'm enrolled in the BS Computer Science ADP program at
+      Virtual University of Pakistan, but most of the credit goes to Coursera,
+      edX and freeCodeCamp.
     </p>
-    <p>
-      I have studied courses like <i>Object Oriented Design</i>, <i
-        >Software Design Patterns</i
-      > and <i>Data Structures & Algorithms</i> etc. Besides CS courses, I have also
-      studied <i>Calculus</i> & <i>Discrete Mathematics</i>. <br />
-      Though I am enrolled in BS Computer Science ADP Program in Virtual University
-      of Pakistan, but most of my educational credit goes to platforms like Coursera,
-      EdX and FreeCodeCamp.
+    <p class="intro">
+      Design patterns, OOD, data structures and algorithms — plus calculus and
+      discrete math, which I enjoyed more than expected.
     </p>
 
     <section class="courses">
@@ -39,13 +34,13 @@ import Course from "../components/Course.astro";
       />
       <Course
         name="JS Algorithms & Data Structures"
-        university="Freecodecamp"
+        university="freeCodeCamp"
         link={"https://www.freecodecamp.org/certification/fcca89724bd-8a87-4e93-8a7c-29324c314330/javascript-algorithms-and-data-structures"}
         icon="/images/freecodecamp.jpeg"
       />
       <Course
         name="Mathematical Thinking in CS"
-        university="University of California San Diego"
+        university="UC San Diego"
         link={"https://www.coursera.org/account/accomplishments/verify/BA72VFZZPYKB"}
         icon="/images/coursera.jpeg"
       />
@@ -60,17 +55,31 @@ import Course from "../components/Course.astro";
 </Layout>
 
 <style>
-  h2 {
-    color: var(--color);
+  h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem 0;
+    color: var(--text);
   }
-  P {
-    margin-bottom: 2rem;
-    color: var(--color);
+
+  .intro {
+    max-width: 62ch;
+    margin: 0 0 1rem 0;
+    color: var(--text-light);
+    line-height: 1.7;
   }
 
   .courses {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.9rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 560px) {
+    .intro {
+      font-size: 0.9rem;
+    }
   }
 </style>

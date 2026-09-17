@@ -1,13 +1,26 @@
 ---
 import PalestineBanner from "../components/PalestineBanner.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 import GithubIcon from "../icons/github.astro";
 import LinkedinIcon from "../icons/linkedin.astro";
 import MediumIcon from "../icons/medium.astro";
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Wasif is a software engineer with 5+ years of experience building APIs, web apps and a few things in between. Google Code-in 2019 Runner Up.",
+} = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const navLinks = [
+  { href: "/about", text: "About" },
+  { href: "/experience", text: "Experience" },
+  { href: "/projects", text: "Projects" },
+  { href: "/education", text: "Education" },
+];
 ---
 
 <!DOCTYPE html>
@@ -16,40 +29,39 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
-    <meta name="theme-color" content="#3451b2" />
+    <meta name="theme-color" content="#5b4bd6" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <script is:inline>
+      // Set the theme before first paint so there is no flash of the wrong one.
+      (function () {
+        var theme = "light";
+        try {
+          theme =
+            localStorage.getItem("theme") ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+        } catch (e) {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@700&family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <title>
-      Muhammad Wasif - Software Developer, Google Code-in 2019 Runner Up
-    </title>
-    <meta
-      name="description"
-      content="Wasif is software engineer who has been building solutions with programming since the age of 15. He loves to learn and develop projects that help people in their daily life."
     />
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://thewasif.github.io/" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Muhammad Wasif - Software Developer, Google Code-in 2019 Runner Up"
-    />
-    <meta
-      property="og:description"
-      content="Wasif is software engineer who has been building solutions with programming since the age of 15. He loves to learn and develop projects that help people in their daily life."
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta
       property="og:image"
       content="https://opengraph.b-cdn.net/production/documents/1070d3ed-cabc-4053-9639-8a11f02597a0.png?token=TdwZ_WLXT0j3DDJSGn8tHMSLEvpNDYAKl0ufnrvgY4c&height=285&width=584&expires=33247365255"
@@ -59,14 +71,8 @@ const { title } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="thewasif.github.io" />
     <meta property="twitter:url" content="https://thewasif.github.io/" />
-    <meta
-      name="twitter:title"
-      content="Muhammad Wasif - Software Developer, Google Code-in 2019 Runner Up"
-    />
-    <meta
-      name="twitter:description"
-      content="Wasif is software engineer who has been building solutions with programming since the age of 15. He loves to learn and develop projects that help people in their daily life."
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
       content="https://opengraph.b-cdn.net/production/documents/1070d3ed-cabc-4053-9639-8a11f02597a0.png?token=TdwZ_WLXT0j3DDJSGn8tHMSLEvpNDYAKl0ufnrvgY4c&height=285&width=584&expires=33247365255"
@@ -76,101 +82,136 @@ const { title } = Astro.props;
   </head>
   <body>
     <PalestineBanner />
+
     <nav>
-      <div>
-        <a href="/">
+      <div class="nav-left">
+        <ThemeToggle />
+        <a href="/" class="brand">
           <h2>محمد واصف</h2>
         </a>
       </div>
       <div class="links">
-        <p>
-          <a href="/about">About</a>
-        </p>
-        <p>
-          <a href="/experience">Experience</a>
-        </p>
-        <p>
-          <a href="/projects">Projects</a>
-        </p>
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class:list={[{ active: path === link.href }]}>
+              {link.text}
+            </a>
+          ))
+        }
       </div>
     </nav>
 
-    <div class="twrapper" >
+    <div class="twrapper">
       <div class="social">
         <div class="icon">
-          <a href="https://github.com/thewasif" target="_blank">
-            <GithubIcon /> 
+          <a href="https://github.com/thewasif" target="_blank" aria-label="GitHub">
+            <GithubIcon />
           </a>
         </div>
         <div class="icon">
-          <a href="https://medium.com/@muhammadwasif" target="_blank">
+          <a href="https://medium.com/@muhammadwasif" target="_blank" aria-label="Medium">
             <MediumIcon />
           </a>
         </div>
         <div class="icon">
-          <a href="https://www.linkedin.com/in/muhammad-wasif/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/muhammad-wasif/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
             <LinkedinIcon />
           </a>
         </div>
         <div class="vertical-line"></div>
       </div>
 
-      <section class="width: 100%;" >
+      <section class="content">
         <slot />
       </section>
-
     </div>
 
     <style is:global>
       :root {
-        --accent: 124, 58, 237;
+        --background: #fbfaff;
+        --surface: #f3f2fb;
+        --surface-hover: #edebf9;
+        --border: #e5e2f2;
+        --text: #14131c;
+        --text-light: #5b5872;
+        --primary: #5b4bd6;
+        --primary-hover: #4a3cc0;
+        --primary-soft: rgba(91, 75, 214, 0.14);
+        --on-primary: #ffffff;
         --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          #3e63dd 30%,
-          white 60%
+          115deg,
+          #5b4bd6,
+          #3b82f6 45%,
+          #06b6d4
         );
-        --color: #11181c;
-        --background: #fbfcfd;
-        --primary: #3451b2;
-        --text: #11181c;
-        --text-light: #25282b;
-        --light-bg: #f1f3f5;
+        --shadow: 0 1px 2px rgba(20, 19, 28, 0.04),
+          0 8px 24px rgba(20, 19, 28, 0.06);
+        --shadow-hover: 0 2px 4px rgba(91, 75, 214, 0.08),
+          0 12px 32px rgba(91, 75, 214, 0.14);
+        /* legacy aliases */
+        --color: var(--text);
+        --light-bg: var(--surface);
       }
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --accent: 124, 58, 237;
-          --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            #3e63dd 30%,
-            white 60%
-          );
-          --color: #ecedee;
-          --background: #151718;
-          --primary: #849dff;
-          --text: #ecedee;
-          --text-light: #9ba1a6;
-          --light-bg: #202425;
-        }
+      html[data-theme="dark"] {
+        --background: #0d0e17;
+        --surface: #171a29;
+        --surface-hover: #1e2133;
+        --border: #262a3f;
+        --text: #eceaf5;
+        --text-light: #9c9ab5;
+        --primary: #a5a1ff;
+        --primary-hover: #b8b5ff;
+        --primary-soft: rgba(165, 161, 255, 0.16);
+        --on-primary: #0d0e17;
+        --accent-gradient: linear-gradient(
+          115deg,
+          #a5a1ff,
+          #7dd3fc 50%,
+          #5eead4
+        );
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+        --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.35),
+          0 12px 32px rgba(0, 0, 0, 0.45);
       }
 
       html {
-        font-family: "Open Sans", sans;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
         background-color: var(--background);
+        color: var(--text);
         margin: 0;
         padding: 0;
+        scroll-behavior: smooth;
+        transition: background-color 0.25s ease;
       }
+
       body {
         margin: 0;
         padding: 0;
+        background-color: var(--background);
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          scroll-behavior: auto;
+        }
       }
 
       main {
         margin: auto;
-        padding: 4rem 1.5rem 0 1.5rem;
-        max-width: 110ch;
+        padding: 3rem 1.5rem 5rem 1.5rem;
+        max-width: 900px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       code {
@@ -182,54 +223,109 @@ const { title } = Astro.props;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.4rem 0.8rem;
+        gap: 1rem;
+        padding: 0.7rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background-color: var(--background);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.25s ease, background-color 0.25s ease;
+      }
+
+      @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+        nav {
+          background-color: color-mix(
+            in srgb,
+            var(--background) 80%,
+            transparent
+          );
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+      }
+
+      nav.scrolled {
+        border-bottom-color: var(--border);
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      .brand h2 {
+        margin: 0;
+        font-family: "Aref Ruqaa Ink", serif;
+        color: var(--text);
+        user-select: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .brand:hover h2 {
+        color: var(--primary);
+        transform: translateY(-1px);
       }
 
       .twrapper {
-        display: flex; 
-        width: 90%;
+        display: flex;
+        width: 92%;
         margin: 0 auto;
       }
+
+      .content {
+        width: 100%;
+      }
+
       @media (min-width: 860px) {
-.twrapper {
-        width: 70%;
-      }
-
-      }
-      @media (min-width: 1590px) {
-        main {
-          max-width: 140ch;
+        .twrapper {
+          width: 78%;
         }
       }
 
-      @media (max-width: 450px) {
-        nav {
-          flex-direction: column;
-        }
-        h2 {
-          display: none;
-        }
-        .links {
-          margin-top: 0.4rem;
-          font-size: small;
-        }
-      }
-      nav h2 {
-        margin: 0;
-        font-family: "Aref Ruqaa Ink", serif;
-        user-select: none;
-      }
       .links {
         display: flex;
-        gap: 0.8rem;
-        display: flex;
-          gap: 1.4rem;
+        gap: 1.2rem;
       }
 
       .links a {
+        position: relative;
         text-decoration: none;
+        color: var(--text-light);
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.2rem 0;
+        transition: color 0.2s ease;
+      }
+
+      .links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 100%;
+        border-radius: 2px;
+        background: var(--accent-gradient);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+      }
+
+      .links a:hover {
+        color: var(--text);
+      }
+
+      .links a:hover::after,
+      .links a.active::after {
+        transform: scaleX(1);
+      }
+
+      .links a.active {
         color: var(--primary);
       }
+
       .social {
         position: fixed;
         bottom: 0;
@@ -237,15 +333,32 @@ const { title } = Astro.props;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 0.9rem;
       }
+
       .social .icon {
-        color: var(--color);
+        color: var(--text-light);
+        display: flex;
+        transition: color 0.2s ease, transform 0.2s ease;
       }
+
+      .social .icon:hover {
+        color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .social .icon a {
+        display: flex;
+        color: inherit;
+      }
+
       .vertical-line {
         width: 1px;
-        height: 100px;
-        background-color: var(--color);
+        height: 90px;
+        margin-top: 0.4rem;
+        background: linear-gradient(to bottom, var(--border), transparent);
       }
+
       a {
         text-decoration: none;
       }
@@ -256,29 +369,65 @@ const { title } = Astro.props;
         }
       }
 
+      @media (max-width: 560px) {
+        nav {
+          padding: 0.6rem 1rem;
+        }
+        .brand h2 {
+          font-size: 1.3rem;
+        }
+        .links {
+          gap: 0.85rem;
+        }
+        .links a {
+          font-size: 0.8rem;
+        }
+        main {
+          padding: 2rem 0.2rem 4rem 0.2rem;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .brand {
+          display: none;
+        }
+      }
+
       ::selection {
-        background-color: #3e63dd;
+        background-color: var(--primary);
         color: white;
       }
 
       /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
+      ::-webkit-scrollbar-track {
+        background: var(--surface);
+      }
 
-::-webkit-scrollbar-thumb {
-  background: #918d8d;
-  border-radius: 10px;
-}
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 10px;
+        transition: background 0.2s ease;
+      }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary);
+      }
     </style>
+
+    <script is:inline>
+      (function () {
+        var nav = document.querySelector("nav");
+        if (!nav) return;
+        var sync = function () {
+          nav.classList.toggle("scrolled", window.scrollY > 4);
+        };
+        sync();
+        window.addEventListener("scroll", sync, { passive: true });
+      })();
+    </script>
   </body>
 </html>

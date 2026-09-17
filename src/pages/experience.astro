@@ -3,64 +3,86 @@ import Layout from "../layouts/Layout.astro";
 import Experience from "../components/ExperienceCard.astro";
 ---
 
-<Layout title="Experience - Muhammad Wasif">
-    <main>
-        <h2>I have more than 5 years of experience of working on applications with diverse domains</h2>
-        <p style="max-width: 80ch;">
-            I value clarity, maintainability, and practical solutions over over-engineering, and I enjoy building things
-            that actually get used. </p>
+<Layout
+  title="Experience - Muhammad Wasif"
+  description="5+ years across fintech, Web3 and consumer apps — backend services, APIs and CI/CD."
+>
+  <main>
+    <h1>Experience</h1>
+    <p class="intro">
+      Five years across fintech, Web3 and consumer apps. Mostly backend, always
+      close to production.
+    </p>
 
-        
-            <Experience
-                title="Relm"
-                description="As a backend engineer at a FinTech product company, I am responsible for designing and implementing scalable backend services and APIs that power our financial applications. I work closely with cross-functional teams to ensure seamless integration of backend systems with frontend applications, while also focusing on optimizing performance and ensuring data security."
-                subtitle="Oct. 2025 - Present"
-                image="/images/relm.ico"
-                links={[{text: "Visit website", href: "https://www.relm.co/"}]}
-        />
+    <div class="timeline">
+      <Experience
+        title="Relm"
+        description="Backend engineer on a fintech product. I design and build the services and APIs behind the financial side of the app, and keep performance and data security honest."
+        subtitle="Backend Engineer · Oct 2025 — Present"
+        image="/images/relm.ico"
+        links={[{ text: "Visit website", href: "https://www.relm.co/" }]}
+      />
 
-            <Experience
-                title="Amjeo Studio"
-                description="At Amjeo Studio, my responsibilities included designing and developing solutions for applications using appropriate technologies that are scalable. I worked on building the backend services for application with 10k+ active users while also handling the CI/CD pipelines across development cycles."
-                subtitle="May 2024 - Sept. 2025"
-                image="/images/amjeo.svg"
-                links={[{text: "Visit website", href: "https://www.amjeo.com/"}]}
-        />
+      <Experience
+        title="Amjeo Studio"
+        description="Built and scaled backend services for an app with 10k+ active users, and owned the CI/CD pipelines that got everything to production."
+        subtitle="Software Engineer · May 2024 — Sept 2025"
+        image="/images/amjeo.svg"
+        links={[{ text: "Visit website", href: "https://www.amjeo.com/" }]}
+      />
 
-        <Experience
-                title="Ideofuzion (Pvt.) Ltd."
-                description="At Ideofuzion, I have worked with a diverse range of technologies, specializing in Web3 development. I have built decentralized applications (DApps), NFT marketplaces, and various other blockchain-powered solutions. My expertise includes using TypeScript to develop applications with React & Next.js, building scalable back-end APIs with NestJS & GraphQL, and creating immersive experiences on Decentraland using the DCL SDK and JavaScript physics engines."
-                subtitle="Sept. 2021 - April 2024"
-                image="/images/ideofuzion.jpeg"
-                links={[{text: "Visit website", href: "https://ideofuzion.com/"}]}
-        />
+      <Experience
+        title="Ideofuzion (Pvt.) Ltd."
+        description="Web3, mostly. DApps, NFT marketplaces and Decentraland worlds — React and Next.js on the front, NestJS and GraphQL behind it, all in TypeScript."
+        subtitle="Software Engineer · Sept 2021 — April 2024"
+        image="/images/ideofuzion.jpeg"
+        links={[{ text: "Visit website", href: "https://ideofuzion.com/" }]}
+      />
 
-        <Experience
-                title="FOSSASIA"
-                description="During Google Code-in 2019, I worked with FOSSASIA to improve open-source projects by identifying and fixing issues. Over two months, I contributed to various enhancements and was honored as a Runner-Up. It was an incredible experience being part of a global competition with students from 76 countries—and I was proud to be the first Pakistani student to achieve this title!."
-                subtitle="Dec. 2019 - Feb. 2020"
-                image="/images/fossasia.jpeg"
-                links={[
-                    {
-                        text: "View Google code-in winners list",
-                        href: "https://codein.withgoogle.com/archive/2019/",
-                    },
-                    {
-                        href: "https://www.dropbox.com/s/rg2s4ikqeib2dxh/GCI%202019%20Certificate%206571372227067904.pdf?dl=0",
-                        text: "View certificate",
-                    },
-                ]}
-        />
-    </main>
+      <Experience
+        title="FOSSASIA"
+        description="Two months of fixing issues and shipping improvements across FOSSASIA's open source projects during Google Code-in 2019. Finished as Runner Up — the first Pakistani student to do so."
+        subtitle="Google Code-in · Dec 2019 — Feb 2020"
+        image="/images/fossasia.jpeg"
+        links={[
+          {
+            text: "Winners list",
+            href: "https://codein.withgoogle.com/archive/2019/",
+          },
+          {
+            href: "https://www.dropbox.com/s/rg2s4ikqeib2dxh/GCI%202019%20Certificate%206571372227067904.pdf?dl=0",
+            text: "Certificate",
+          },
+        ]}
+      />
+    </div>
+  </main>
 </Layout>
 
 <style>
-    h2 {
-        color: var(--color);
-    }
+  h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem 0;
+    color: var(--text);
+  }
 
-    P {
-        margin-bottom: 2rem;
-        color: var(--color);
+  .intro {
+    max-width: 58ch;
+    margin: 0 0 2.5rem 0;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 560px) {
+    .intro {
+      font-size: 0.9rem;
     }
+  }
 </style>

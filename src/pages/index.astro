@@ -29,12 +29,23 @@ import Button from "../components/Button.astro";
         </h1>
         <div class="text-container">
             <p class="description">
-                I’m a software engineer with over 5 years of professional experience building and maintaining
-                applications. I’ve worked across the full development lifecycle, from shaping ideas and
-                implementing features to improving performance and reliability in production systems. I’m comfortable
-                collaborating in fast-moving environments, adapting to new domains, and solving practical problems with
-                simple, maintainable solutions.
+                Software engineer, 5+ years in. I build backends that stay up and
+                frontends that stay simple — APIs, fintech systems, and one
+                cricket stadium in the metaverse.
             </p>
+            <p class="description muted">
+                Currently backend engineer at <a href="https://www.relm.co/" target="_blank" rel="noopener">Relm</a>.
+                Google Code-in 2019 Runner Up.
+            </p>
+            <ul class="stack">
+                <li>TypeScript</li>
+                <li>Node.js</li>
+                <li>NestJS</li>
+                <li>React</li>
+                <li>Next.js</li>
+                <li>PostgreSQL</li>
+                <li>GraphQL</li>
+            </ul>
         </div>
         <a href="/experience">
             <Button variant="primary">Experience</Button>
@@ -62,24 +73,64 @@ import Button from "../components/Button.astro";
 
 <style>
 .text-container {
-    max-width: 60ch;
+    max-width: 58ch;
     }
 h1 {
-    font-size: calc(2rem + 1vw);
-    font-weight: 800;
-    margin: 0;
-    margin-top: 4rem;
-    color: var(--color);
+    font-size: calc(2.1rem + 1vw);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.2rem 0;
+    margin-top: 3.5rem;
+    color: var(--text);
     }
 .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+    background-size: 100%;
     }
 .description {
-    color: var(--color);
+    color: var(--text);
+    line-height: 1.65;
+    }
+
+.description.muted {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    }
+
+.description a {
+    color: var(--primary);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    }
+
+.description a:hover {
+    border-bottom-color: var(--primary);
+    }
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem 0;
+    }
+
+.stack li {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    padding: 0.28rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+.stack li:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
     }
 
 .ml-1 {
@@ -90,6 +141,7 @@ h1 {
     background-color: var(--background);
     position: relative;
     z-index: 2;
+    transition: background-color 0.25s ease;
     }
 .gopher {
     position: absolute;
@@ -97,9 +149,12 @@ h1 {
     z-index: -1;
     }
 
+.gopher {
+    transition: top 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
 .gopher:hover {
     top: -45px;
-    transition: 0.15s;
     }
 
 .eye-socket {
