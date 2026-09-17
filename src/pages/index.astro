@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
-import Squiggle from "../components/Squiggle.astro";
 ---
 
 <Layout
@@ -30,7 +29,7 @@ import Squiggle from "../components/Squiggle.astro";
         </h1>
         <div class="text-container">
             <p class="description">
-                Software engineer, <span class="hl">5+ years<Squiggle /></span> in.
+                Software engineer, 5+ years in.
                 I build backends that stay up and frontends that stay simple —
                 APIs, fintech systems, and one cricket stadium in the metaverse.
             </p>
@@ -100,12 +99,6 @@ h1 {
 
 .description a:hover {
     border-bottom-color: var(--primary);
-    }
-
-.hl {
-    position: relative;
-    white-space: nowrap;
-    font-weight: 600;
     }
 
 .ml-1 {
