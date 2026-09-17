@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Squiggle from "../components/Squiggle.astro";
 ---
 
 <Layout
@@ -29,23 +30,14 @@ import Button from "../components/Button.astro";
         </h1>
         <div class="text-container">
             <p class="description">
-                Software engineer, 5+ years in. I build backends that stay up and
-                frontends that stay simple — APIs, fintech systems, and one
-                cricket stadium in the metaverse.
+                Software engineer, <span class="hl">5+ years<Squiggle /></span> in.
+                I build backends that stay up and frontends that stay simple —
+                APIs, fintech systems, and one cricket stadium in the metaverse.
             </p>
             <p class="description muted">
                 Currently backend engineer at <a href="https://www.relm.co/" target="_blank" rel="noopener">Relm</a>.
                 Google Code-in 2019 Runner Up.
             </p>
-            <ul class="stack">
-                <li>TypeScript</li>
-                <li>Node.js</li>
-                <li>NestJS</li>
-                <li>React</li>
-                <li>Next.js</li>
-                <li>PostgreSQL</li>
-                <li>GraphQL</li>
-            </ul>
         </div>
         <a href="/experience">
             <Button variant="primary">Experience</Button>
@@ -97,6 +89,7 @@ h1 {
 .description.muted {
     color: var(--text-light);
     font-size: 0.92rem;
+    margin-bottom: 2.4rem;
     }
 
 .description a {
@@ -109,28 +102,10 @@ h1 {
     border-bottom-color: var(--primary);
     }
 
-.stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0 2rem 0;
-    }
-
-.stack li {
-    font-size: 0.78rem;
-    color: var(--text-light);
-    padding: 0.28rem 0.7rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-
-.stack li:hover {
-    color: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-2px);
+.hl {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 600;
     }
 
 .ml-1 {

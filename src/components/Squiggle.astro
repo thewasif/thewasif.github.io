@@ -1,0 +1,74 @@
+---
+---
+
+<svg
+  class="squiggle"
+  viewBox="0 0 200 20"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <filter id="chalk-rough" x="-20%" y="-50%" width="140%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045 0.5" numOctaves="4" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#chalk-rough)">
+    <path
+      class="stroke-1"
+      pathLength="1"
+      d="M3,13 C34,4 68,6 96,9 C124,12 158,5 197,7"
+    ></path>
+    <path
+      class="stroke-2"
+      pathLength="1"
+      d="M14,18 C52,12 104,15 148,12 C166,11 178,13 190,12"
+    ></path>
+  </g>
+</svg>
+
+<style>
+  .squiggle {
+    position: absolute;
+    left: -2%;
+    bottom: -0.5em;
+    width: 106%;
+    height: 0.78em;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  path {
+    fill: none;
+    stroke: var(--primary);
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  .stroke-1 {
+    stroke-width: 5.5;
+    animation-delay: 0.35s;
+  }
+
+  .stroke-2 {
+    stroke-width: 3.2;
+    opacity: 0.4;
+    animation-delay: 0.6s;
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

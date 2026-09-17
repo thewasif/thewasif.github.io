@@ -1,0 +1,148 @@
+---
+---
+
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"><span></span></div>
+
+<style is:global>
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
+  }
+
+  #cursor-dot,
+  #cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 0.25s ease;
+  }
+
+  html.custom-cursor #cursor-dot,
+  html.custom-cursor #cursor-ring {
+    opacity: 1;
+  }
+
+  html.custom-cursor.cursor-hidden #cursor-dot,
+  html.custom-cursor.cursor-hidden #cursor-ring {
+    opacity: 0;
+  }
+
+  #cursor-dot {
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background-color: var(--primary);
+  }
+
+  #cursor-ring span {
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border: 1.5px solid var(--primary);
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 0.2s ease, background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  #cursor-ring.hovering span {
+    transform: scale(1.55);
+    background-color: var(--primary-soft);
+  }
+
+  #cursor-ring.pressed span {
+    transform: scale(0.8);
+  }
+
+  #cursor-ring.hovering.pressed span {
+    transform: scale(1.25);
+  }
+</style>
+
+<script>
+  (() => {
+    const finePointer = window.matchMedia("(pointer: fine)");
+    if (!finePointer.matches) return;
+
+    const dot = document.getElementById("cursor-dot");
+    const ring = document.getElementById("cursor-ring");
+    if (!dot || !ring) return;
+
+    const root = document.documentElement;
+    root.classList.add("custom-cursor");
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let ringX = x;
+    let ringY = y;
+
+    const move = (e) => {
+      x = e.clientX;
+      y = e.clientY;
+      dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      root.classList.remove("cursor-hidden");
+    };
+
+    const frame = () => {
+      // Ring trails the dot slightly; reduced motion pins them together.
+      const ease = reduceMotion ? 1 : 0.18;
+      ringX += (x - ringX) * ease;
+      ringY += (y - ringY) * ease;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      requestAnimationFrame(frame);
+    };
+
+    const interactive = "a, button, input, textarea, select, [role='button']";
+
+    document.addEventListener("mousemove", move, { passive: true });
+    document.addEventListener(
+      "mouseover",
+      (e) => {
+        const target = e.target;
+        if (target instanceof Element && target.closest(interactive)) {
+          ring.classList.add("hovering");
+        }
+      },
+      { passive: true }
+    );
+    document.addEventListener(
+      "mouseout",
+      (e) => {
+        const target = e.target;
+        if (target instanceof Element && target.closest(interactive)) {
+          ring.classList.remove("hovering");
+        }
+      },
+      { passive: true }
+    );
+    document.addEventListener("mousedown", () => ring.classList.add("pressed"), {
+      passive: true,
+    });
+    document.addEventListener(
+      "mouseup",
+      () => ring.classList.remove("pressed"),
+      { passive: true }
+    );
+    document.addEventListener("mouseleave", () =>
+      root.classList.add("cursor-hidden")
+    );
+
+    // A pointer change (plugging in / removing a mouse) restores the OS cursor.
+    finePointer.addEventListener?.("change", (e) => {
+      root.classList.toggle("custom-cursor", e.matches);
+    });
+
+    requestAnimationFrame(frame);
+  })();
+</script>
